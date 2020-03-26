@@ -38,13 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-        model.mutableLiveData.observe(this, new Observer<List<Post>>() {
-            @Override
-            public void onChanged(List<Post> posts) {
-
-                adapter.setList(posts);
-
-            }
-        });
+        model.data.observe(this, posts -> adapter.setList(posts));
     }
 }
